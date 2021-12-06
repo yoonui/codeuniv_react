@@ -1,10 +1,10 @@
-import Day from './study/problem/Day_4';
+import youtubeData from './data/youtubeData.json';
 
 function App() {
+  console.log('youtubeData : ', youtubeData);
+
   return (
-    <div>
-      <Day/>
-    </div>
+    <div>리액트로 데이터 불러오기</div>
   );
 }
 
