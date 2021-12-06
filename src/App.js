@@ -1,9 +1,9 @@
-import Day_2 from './study/problem/Day_2';
+import Day from './study/problem/Day_4';
 
 function App() {
   return (
     <div>
-      <Day_2/>
+      <Day/>
     </div>
   );
 }
