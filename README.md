@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# 1일차 : 리액트란?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+리액트란? 2013년, 페이스북에서 개발한 자바스크립트 라이브러리로, 사용하는 웹의 UI를 쉽게 만들어준다.
 
-## Available Scripts
 
-In the project directory, you can run:
+- 리액트의 장점 "컴포넌트" : 함수를 만들어 코드의 가독성과 유지보수를 쉽게 할 수 있는 것처럼, UI요소들을 컴포넌트로 선언해 코드의 절대량을 줄이고, 가독성을 높일 수 있다. 즉, 컴포넌트를 기반으로 재사용성이 높다.
 
-### `npm start`
+- 사전 준비 : 사용할 리액트의 초기 설정에서는 Webpack, Babel과 같은 도구들을 사용하게 된다. 이러한 도구들은 Nodejs를 기반으로 작성되어 있으므로, Node를 설치한다. 또한, 개발을 위해 사용할 에디터를 준비한다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+# 2일차 : 프로젝트 생성과 Hello, React!
+터미널에 아래 명령어 입력
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+$ npx craete-react-app mogakko-react
 
-### `npm run build`
+create-react-app은 페이스북에서 만든 bolilerplate로, 리액트 개발을 시작할 수 있도록 만들어둔 기초 골격이라고 볼 수 있다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- App.js 파일에서는 HTML 태그를 리턴하는 App 함수를 선언하고 있다. 이렇게 HTML 형식의 값을 반환해주거나 변수에 HTML을 대입할 수 있는 문법을 JavaScript eXtension, 줄여서 'JSX'라고 한다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- export 키워드를 통해 함수를 내보낼 수 있다. 이렇게 내보내진 함수를 컴포넌트라고 부른다. 다른 컴포넌트에서 이를 불러와 사용할 수 있게 되는 것이다. 따라서 웹 페이지를 만들 때, 헤더나 목차 등을 컴포넌트로 생성한다면 필요할 때 불러오기만 하면 되므로, 재사용성이 높은 것이다.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# 3일차 : 컴포넌트 스타일링
+HTML에서와 마찬가지로, CSS 파일을 만들고 컴포넌트에서 불러와 사용할 수 있다. 예제에서 Hello.js는 Hello.css를 불러오고, Bye.js는 css 파일을 불러오지 않는 채로 두 js 모두 같은 클래스 이름을 사용한다. 이 경우, Bye.js는 css를 불러오지 않았음에도 불구하고 Hello.css가 적용된 것을 확인할 수 있다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+이는 컴포넌트 단위로 나뉜 수많은 파일들을 하나로 합친 파일로 요청하는것이 자원도 덜 들고 속도도 빠르기 때문에, 리액트의 모든 파일은 하나의 파일로 합쳐지게 된다. 이렇게 리액트의 모든 파일을 하나로 압축하는 과정에서 Hello 컴포넌트와 Bye 컴포넌트의 클래스 이름은 똑같다고 처리하기 때문에, Bye 컴포넌트에서 css를 불러오지 않더라도 Hello 컴포넌트에서 불러온 css 속성이 적용된 것이다.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+이러한 문제를 해결하기 위해 나온 것이 CSS Module 이라는 것이다. 이를 사용하게 되면 각 컴포넌트마다 고유한 클래스 이름을 가질 수 있다.
 
-## Learn More
+CSS만을 사용했을 땐 다른 컴포넌트에서 작성한 클래스 이름도 똑같이 출력되었지만, CSS Module을 사용하니 추가적으로 컴포넌트 이름과 해쉬값이 붙어, 고유한 클래스 이름이 된다.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+# 4일차 : Hook와 State
+리액트에서 제공하는 기본적인 기능은 Hook라는 이름으로 제공된다. Hook는 대표적으로 상태관리를 위한 useState, 렌더링 전후의 작업을 담당하는 useEffect 등이 존재하며, 4일차에서는 상태관리에 사용되는 useState를 알아본다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- 리액트의 컴포넌트들은 여러가지 데이터를 받아야 하는 경우가 많다. 이 데이터는 컴포넌트 내부에서 선언할수도, 다른 컴포넌트로부터 넘겨받을수도 있다. 내부에서 선언되고 관리되는 데이터를 State라고 하며, 컴포넌트로부터 받은 데이터를 Props라고 한다. 즉, Props는 함수에 전달되는 매개변수, State는 함수에서 선언된 변수 값이라고 이해하면 된다.
+$ const [상태 변수, 상태 값 변경 함수] = useState(초기값);
 
-### Analyzing the Bundle Size
+- var를 놔두고 useState를 사용하는 이유는 변수가 변해도 렌더링이 다시 되지 않기 때문이다. 렌더링이란, 사용자 화면에 내용을 보여주는 것을 의미한다. 변수가 변해도 렌더링이 다시 되지 않는다면, 데이터의 변화를 사용자가 볼 수 있다는 의미이다. 즉, 단순히 var로 변수를 선언하게 되면 변수 값 자체는 증가하지만, 상태는 변경되지 않아 리렌더링이 일어나지 않는다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
