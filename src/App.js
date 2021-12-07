@@ -1,12 +1,17 @@
-import Layout from './components/shared/Layout';
-import Day_8 from './study/problem/Day_8';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Explore from './pages/Explore';
+import Subscription from './pages/Subscription';
 
 function App() {
   return (
-    <Layout>
-      <div>콘텐츠!</div>
-      <Day_8/>
-    </Layout>
+    <div>
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/Explore" element={<Explore />}/>
+        <Route path="/Subscription" element={<Subscription />}/>
+      </Routes>
+    </div>
   );
 }
 
