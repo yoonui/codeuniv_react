@@ -87,3 +87,16 @@ https://react-icons.github.io/react-icons/icons?name=bi
 
 $ import youtube_logo from '../../data/youtube_logo.png';
 
+
+
+# 9일차 : SPA와 링크
+HTML을 다룰 땐 단순히 a 태그를 사용하면 링크를 만들 수 있었다. 그러나 리액트는 이러한 페이지 이동이 불가능하다. 이는 리액트의 또 다른 특성인 Single Page Application(SPA) 때문이다. 말 그대로, 리액트는 페이지가 하나인 어플리케이션이므로 페이지 이동이 불가능하다.
+
+SPA에서는 페이지 이동이 아닌, '주소값에 따른 화면'을 만들어준다. 이렇게 주소마다 다른 화면을 보여주는 것을 라우팅(routing)이라고 한다.
+
+라우팅을 가능하게 해주는 라이브러리를 설치한다.
+
+$ npm install react-router-dom
+
+설치를 마친 뒤, 리액트 앱에서 라우팅이 가능하도록 설정해준다. src 폴더의 index.js 파일에서 App 컴포넌트를 BrowserRouter로 감싸준다. 여기서 index.js는 리액트의 최상단에 위치한 컴포넌트이다. 렌더링되는 유일한 컴포넌트인 App 컴포넌트를 BrowserRouter로 감싸줌으로서, 리액트 앱에서 라우팅을 가능하도록 허락한 것이다.
+
