@@ -1,9 +1,10 @@
-import Layout from "../components/shared/Layout";
+import Layout from '../components/shared/Layout';
+import styles from './Subscription.module.css';
 
 function Subscription(){
     return (
-        <Layout>
-            <div>구독</div>
+        <Layout activeMenu="subscription">
+            <div className={styles.container}>구독</div>
         </Layout>
     );
 }
